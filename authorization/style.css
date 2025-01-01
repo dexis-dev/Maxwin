@@ -1,0 +1,407 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #02030f;
+    font-family: montserrat;
+}
+
+
+.login_container {
+    margin: auto;
+    max-width: 850px;
+}
+
+.login_box {
+    margin-top: 4%;
+    width: 100%;
+    height: 560px;
+    display: flex;
+    border-radius: 20px;
+    justify-content: space-evenly;
+    background-color: #031725;
+    position: relative; 
+}
+
+.login_hero {
+    pointer-events: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: absolute; 
+    left: 0;
+    top: 0; 
+    height: 100%; 
+}
+
+.login_flex_box {
+    display: flex;
+    justify-content: center; 
+}
+
+.login_inside {
+    display: block;
+}
+
+.login_inside_for_button {
+    display: flex;
+    margin-top: 25px;
+    margin-left: 14em;
+}
+
+.login_button  {
+    border: 1px solid #d9d9d9;
+    width: 111px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #031725;
+    color: #fff;
+    font-size: 19px;
+    cursor: pointer;
+}
+.login_buttone {
+    width: 111px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #031725;
+    color: #fff;
+    font-size: 19px;
+    cursor: pointer;
+    border: 0px;
+}
+.login_buttone:hover {
+    border: 1px solid #d9d9d9;
+}
+
+.register_button {
+    width: 153px;
+    height: 45px;
+    margin-left: 20px;
+    border-radius: 10px;
+    background-color: #031725;
+    color: #fff;
+    font-size: 19px;
+    border: 0px;
+    cursor: pointer;
+}
+.register_button:hover {
+    border: 1px solid #d9d9d9;
+}
+
+.line {
+    border: 1px solid #d9d9d9;
+}
+
+.logo {
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 80px;
+    pointer-events: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.login_title {
+    font-size: 18px;
+    color: #fff;
+}
+
+.login_input {
+    width: 380px;
+    height: 54px;
+    background-color: #fff;
+    font-size: 18px;
+    padding-left: 20px;
+    border-radius: 10px;
+    border: 2px solid #0C5DE9;
+    outline: none;
+}
+
+
+.login_center {
+    text-align: center;
+    margin-left: 150px;
+}
+
+
+.icons_background {
+    width: 50px;
+    cursor: pointer;
+    margin-left: 20px;
+    height: 50px;
+    background-color: #031725;
+    border: 1px solid #3F97FF;
+    border-radius: 10px;
+}
+
+.icons_background:hover {
+    background-color: #3F97FF;
+}
+
+.login_button_register {
+    width: 414px;
+    height: 52px;
+    border-radius: 8px;
+    background: rgb(12,93,233);
+    background: linear-gradient(0deg, rgba(12,93,233,1) 0%, rgba(63,135,255,1) 100%);
+    cursor: pointer;
+    border: 0px;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 35px;
+}
+
+.copy {
+    font-size: 11px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.link_container {
+    margin-top: 25px;
+    text-align: center;
+    margin-left: 10em ;
+}
+
+.link_container a {
+    color: #fff;
+    margin-left: 40px;
+    text-decoration: none;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+/****Мобильная адаптация****/
+
+
+
+
+
+
+@media (max-width: 858px) {
+    .login_container {
+        display: none;
+    }
+}
+
+
+
+.mobile_login_container {
+    display: none; 
+}
+
+@media (max-width: 858px) {
+    .mobile_login_container {
+        display: block; 
+        max-width: 858px;
+        margin: auto;
+        padding: 0 15px;
+    }
+}
+
+.mobile_login_box {
+    width: 100%;
+    margin-top: 4%;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #031725;
+    
+}
+.logo_mobile {
+    padding-top: 30px;
+}
+
+.mobile_login_inside_for_button {
+    display: flex;
+    padding-top: 40px;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.mobile_login_button {
+    width: 200px;
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #fff;
+    color: #000000;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: montserrat;
+    cursor: pointer;
+}
+/**/
+.mobile_login_buttone {
+    width: 200px;
+    height: 50px;
+    background-color: #031725;
+    border: 1px solid #fff;
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: montserrat;
+    cursor: pointer;
+    transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.mobile_login_buttone:hover {
+    background-color: #fff;
+    color: #000;
+}
+/**/
+
+.mobile_register_button {
+    width: 200px;
+    height: 50px;
+    width: 200px;
+    background-color: #031725;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: montserrat;
+    transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/**/
+.mobile_register_buttone {
+    width: 200px;
+    height: 50px;
+    width: 200px;
+    background-color: #ffffff;
+    border: 1px solid #fff;
+    color: #000000;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: montserrat;
+    transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+/**/
+
+.mobile_register_button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.mobile_title {
+    color: #fff;
+    font-size: 25px;
+
+}
+
+.mobile_input {
+    width: 80%;
+    height: 50px;
+    outline: none;
+    background-color: #fff;
+    border: 1px solid #0C5DE9;
+    border-radius: 10px;
+    padding-left: 30px;
+    font-size: 20px;
+}
+
+
+.mobile_login_button_register {
+    width: 85%;
+    height: 52px;
+    background: rgb(12,93,233);
+    background: linear-gradient(0deg, rgba(12,93,233,1) 0%, rgba(63,135,255,1) 100%);
+    cursor: pointer;
+    border: 0px;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 35px;
+    border-radius: 10px;
+}
+
+
+
+@media (max-width: 500px) {
+    .mobile_login_button {
+        width: 150px;
+    }
+    .mobile_register_button {
+        width: 150px;
+    }  
+    .mobile_login_buttone {
+        width: 150px;
+    }
+    .mobile_register_buttone {
+        width: 150px;
+    }   
+}
+
+
+@media (max-width: 351px) {
+    .mobile_login_button {
+        width: 80%;
+        height: 50px;
+        margin-top: 20px;
+    }
+    .mobile_register_button {
+        width: 80%;
+        margin-top: 20px;
+    }   
+    .mobile_login_inside_for_button {
+        display: block;
+    }
+    .mobile_login_buttone {
+        width: 80%;
+        height: 50px;
+        margin-top: 20px;
+    }
+    .mobile_register_buttone {
+        width: 80%;
+        margin-top: 20px;
+    }
+}
+
+.mobile_link {
+    margin-top: 25px;
+}
+
+.text_link {
+    color: #fff;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.dicoraton {
+    text-decoration: none;
+}
+
+
+@media (max-width: 460px) {
+    .text_link {
+        font-size: 17px;
+    }
+} 
+
+
+@media (max-width: 417px) {
+    .mobile_link {
+        display: block;
+    }
+    .text_link {
+        font-size: 15px;
+    }
+} 

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Max Win</title>
+</head>
+
+<body style="display: flex;">
+    <img src="img/mobile_logo.png" alt="mobile_logo" class="mobile_logo">
+    <main class="main__nav">
+        <div class="box">
+            <img src="img/logo.svg" alt="logo" class="logo">
+            <nav class="nav">
+                <div class="nav__item">
+                    <img src="img/cup.svg" alt="cup">
+                    <p>Турниры</p>
+                </div>
+                <div class="nav__item">
+                    <img src="img/rocket.svg" alt="rocket">
+                    <p>Crash</p>
+                </div>
+                <div class="nav__item">
+                    <img src="img/dice.svg" alt="dice">
+                    <p>Dice</p>
+                </div>
+                <div class="nav__item">
+                    <img src="img/mines.svg" alt="mines">
+                    <p>Mines</p>
+                </div>
+                <div class="nav__item">
+                    <img src="img/coins.svg" alt="coins">
+                    <p>Coinflip</p>
+                </div>
+                <div class="nav__item">
+                    <img src="img/icons.svg" alt="icons">
+                    <p>x30</p>
+                </div>
+                <div class="nav__item">
+                    <img src="img/slots.svg" alt="coins">
+                    <p>Slots</p>
+                </div>
+            </nav>
+            <div class="bonuses">
+                <button class="bonuses__button">
+                    <img src="img/lightning.svg" alt="lightning">
+                    <p>Промо</p>
+                </button>
+                <button class="bonuses__button">
+                    <img src="img/bonus.svg" alt="bonus">
+                    <p>Бонусы</p>
+                </button>
+            </div>
+            <div class="contacts">
+                <img src="img/vk.svg" alt="vk">
+                <img src="img/tg.svg" alt="tg">
+            </div>
+        </div>
+    </main>
+    <div class="authorization">
+        <a href="authorization/login.html"><button class="authorization__button">Войти</button></a>
+        <a href="authorization/register.html"><button class="registration__button">Регистрация</button></a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const controlsContainer = document.querySelector('.controls');
+    
+            // Создаем кружочки для каждого слайда
+            slides.forEach((slide, index) => {
+                const control = document.createElement('div');
+                control.classList.add('control');
+                control.addEventListener('click', () => {
+                    goToSlide(index);
+                    updateControls(index);
+                });
+                controlsContainer.appendChild(control);
+            });
+    
+            let currentSlide = 0;
+            let isScrolling = false;
+            let touchStartX = 0;
+            let touchEndX = 0;
+    
+            function goToSlide(index) {
+                currentSlide = Math.min(slides.length - 1, Math.max(0, index));
+                const translateValue = -currentSlide * 100 + '%';
+                slider.style.transform = 'translateX(' + translateValue + ')';
+            }
+    
+            function updateControls(index) {
+                const controls = document.querySelectorAll('.control');
+                controls.forEach((control, i) => {
+                    control.classList.toggle('active', i === index);
+                });
+            }
+    
+            function nextSlide() {
+                goToSlide(currentSlide + 1);
+                updateControls(currentSlide);
+            }
+    
+            setInterval(() => {
+                if (!isScrolling) {
+                    nextSlide();
+                }
+            }, 5000);
+    
+            updateControls(currentSlide);
+    
+            // Добавляем поддержку скролла
+            slider.addEventListener('touchstart', (e) => {
+                isScrolling = true;
+                touchStartX = e.touches[0].clientX;
+            });
+    
+            slider.addEventListener('touchmove', (e) => {
+                if (isScrolling) {
+                    touchEndX = e.touches[0].clientX;
+                }
+            });
+    
+            slider.addEventListener('touchend', () => {
+                isScrolling = false;
+    
+                // Определяем направление свайпа по разнице координат
+                const deltaX = touchStartX - touchEndX;
+    
+                if (deltaX > 50) {
+                    // Свайп вправо
+                    nextSlide();
+                } else if (deltaX < -50) {
+                    // Свайп влево
+                    goToSlide(currentSlide - 1);
+                    updateControls(currentSlide);
+                }
+            });
+        });
+    </script>
+    
+    <main>
+        <div class="container">
+            <div class="banner">
+                <div class="slider">
+                    <div class="slide"><img src="img/Rectangle 3.png" alt="Slide 1"></div>
+                    <div class="slide"><img src="img/Rectangle 3.png" alt="Slide 1"></div>
+                    <div class="slide"><img src="img/Rectangle 3.png" alt="Slide 1"></div>
+                </div>
+            
+                <div class="controls"></div>
+            </div>
+        
+            <div class="other">
+                <div class="other__block num1">
+                    <h1>Подпишись на Telegram и забирай подарки</h1>
+                    <p>в нашем телеграмм канале вы
+                        найдете самые топовые бонусы</p>
+                    <button>Подписаться</button>
+                </div>
+                <div class="other__block num2">
+                    <h1>Получай крутые эмоции вместе с MaxWin</h1>
+                    <p>мы подготовили для вас множесто популярных режимов и слотов</p>
+                    <button>Пополнить счёт</button>
+                </div>
+            </div>
+            <div class="games">
+                <h1 class="games__h1">Наши игры</h1>
+                <div class="games__list">
+                    <div class="games__list__item num1">
+                        <h1>Slots</h1>
+                    </div>
+                    <div class="games__list__item num2">
+                        <h1>Coinflip</h1>
+                    </div>
+                    <div class="games__list__item num3">
+                        <h1>x30</h1>
+                    </div>
+                    <div class="games__list__item num4">
+                        <h1>Dice</h1>
+                    </div>
+                    <div class="games__list__item num5">
+                        <h1>Mines</h1>
+                    </div>
+                    <div class="games__list__item num6">
+                        <h1>Crash</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="games__slots">
+                <h1 class="games__slots__h1">Игровые слоты</h1>
+                <div class="games__slots__list">
+                    <div class="games__slots__list__item"></div>
+                    <div class="games__slots__list__item"></div>
+                    <div class="games__slots__list__item"></div>
+                    <div class="games__slots__list__item"></div>
+                    <div class="games__slots__list__item"></div>
+                    <div class="games__slots__list__item"></div>
+                    <div class="games__slots__list__item"></div>
+                    <div class="games__slots__list__item"></div>
+                    <div class="games__slots__list__item"></div>
+                    <div class="games__slots__list__item"></div>
+                </div>
+            </div>
+            <div class="last__games">
+                <h1 class="last__games__h1">Последние игры</h1>
+                <div class="last__games__list">
+                    <div class="last__games__list__header">
+                        <p>Игра</p>
+                        <p>Игрок</p>
+                        <p>Ставка</p>
+                        <p>Коэфф.</p>
+                        <p>Выйгрыш</p>
+                    </div>
+                    <div class="last__games__list__item">
+                        <p class="type">MINES</p>
+                        <div class="user">
+                            <div class="user__logo"></div>
+                            <p class="nick">Ник</p>
+                        </div>
+                        <div class="bet">
+                            <p>20</p>
+                            <img src="img/rub.svg" alt="rub">
+                        </div>
+                        <p class="ratio">0.00x</p>
+                        <div class="win">
+                            <p>20</p>
+                            <img src="img/rub.svg" alt="rub">
+                        </div>
+                    </div>
+                    <div class="last__games__list__item">
+                        <p class="type">MINES</p>
+                        <div class="user">
+                            <div class="user__logo"></div>
+                            <p class="nick">Ник</p>
+                        </div>
+                        <div class="bet">
+                            <p>20</p>
+                            <img src="img/rub.svg" alt="rub">
+                        </div>
+                        <p class="ratio">0.00x</p>
+                        <div class="win">
+                            <p>20</p>
+                            <img src="img/rub.svg" alt="rub">
+                        </div>
+                    </div>
+                    <div class="last__games__list__item">
+                        <p class="type">MINES</p>
+                        <div class="user">
+                            <div class="user__logo"></div>
+                            <p class="nick">Ник</p>
+                        </div>
+                        <div class="bet">
+                            <p>20</p>
+                            <img src="img/rub.svg" alt="rub">
+                        </div>
+                        <p class="ratio">0.00x</p>
+                        <div class="win">
+                            <p>20</p>
+                            <img src="img/rub.svg" alt="rub">
+                        </div>
+                    </div>
+                    <div class="last__games__list__item">
+                        <p class="type">MINES</p>
+                        <div class="user">
+                            <div class="user__logo"></div>
+                            <p class="nick">Ник</p>
+                        </div>
+                        <div class="bet">
+                            <p>20</p>
+                            <img src="img/rub.svg" alt="rub">
+                        </div>
+                        <p class="ratio">0.00x</p>
+                        <div class="win">
+                            <p>20</p>
+                            <img src="img/rub.svg" alt="rub">
+                        </div>
+                    </div>
+                    <div class="last__games__list__item">
+                        <p class="type">MINES</p>
+                        <div class="user">
+                            <div class="user__logo"></div>
+                            <p class="nick">Ник</p>
+                        </div>
+                        <div class="bet">
+                            <p>20</p>
+                            <img src="img/rub.svg" alt="rub">
+                        </div>
+                        <p class="ratio">0.00x</p>
+                        <div class="win">
+                            <p>20</p>
+                            <img src="img/rub.svg" alt="rub">
+                        </div>
+                    </div>
+                    <div class="last__games__list__item">
+                        <p class="type">MINES</p>
+                        <div class="user">
+                            <div class="user__logo"></div>
+                            <p class="nick">Ник</p>
+                        </div>
+                        <div class="bet">
+                            <p>20</p>
+                            <img src="img/rub.svg" alt="rub">
+                        </div>
+                        <p class="ratio">0.00x</p>
+                        <div class="win">
+                            <p>20</p>
+                            <img src="img/rub.svg" alt="rub">
+                        </div>
+                    </div>
+                    <div class="last__games__list__item">
+                        <p class="type">MINES</p>
+                        <div class="user">
+                            <div class="user__logo"></div>
+                            <p class="nick">Ник</p>
+                        </div>
+                        <div class="bet">
+                            <p>20</p>
+                            <img src="img/rub.svg" alt="rub">
+                        </div>
+                        <p class="ratio">0.00x</p>
+                        <div class="win">
+                            <p>20</p>
+                            <img src="img/rub.svg" alt="rub">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <footer>
+                <div class="footer">
+                    <div class="footer__line">
+                        <img src="img/footer__logo.png" alt="footer__logo" class="footer__logo">
+                        <div class="footer__contacts">
+                            <img src="img/vk.svg" alt="vk">
+                            <img src="img/tg.svg" alt="vk">
+                        </div>
+                        <h1 class="footer__about">О нас</h1>
+                        <h1 class="footer__help">Помощь</h1>
+                        <h1 class="footer__information">Информация</h1>
+                    </div>
+                
+                    <p class="footer__p">MaxWin Casino - моментальные игры с выплатами <br>
+                        The license for conducting gambling activities has been issued softgambling.ru
+                    </p>
+
+                    <div class="forbidden">
+                        <img src="img/18.svg" alt="18">
+                        <p>Играйте ответственно</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <div class="nav__mobile">
+            <nav class="nav__list__mobile">
+                <div class="block" id="menuButton">
+                    <img src="img/menu.svg" alt="menu">
+                    <p>Меню</p>
+                </div>
+                
+                <div class="modal" id="myModal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <img src="img/logo.svg" alt="">
+                        <div class="menu_for_button">
+                            <button class="menu_button">
+                                <img src="img/modal/1.svg" width="30" alt="">
+                                Турниры
+                            </button>
+                            <button class="menu_button">
+                                <img src="img/modal/2.svg" alt="">
+                                Crash
+                            </button>
+                            <button class="menu_button">
+                                <img src="img/modal/3.svg" alt="">
+                                Dice
+                            </button>
+                            <button class="menu_button">
+                                <img src="img/modal/4.svg" alt="">
+                                Mines
+                            </button>
+                            <button class="menu_button">
+                                <img src="img/modal/5.svg" alt="">
+                                Coinflip
+                            </button>
+                            <button class="menu_button">
+                                <img src="img/modal/6.svg" alt="">
+                                x30
+                            </button>
+                            <button class="menu_button">
+                                <img src="img/modal/7.svg" alt="">
+                                Slots
+                            </button>
+                            <button class="menu_button">
+                                <img src="img/modal/8.svg" alt="">
+                                Промо
+                            </button><br><br>
+                            <div class="for_social">
+                                <button>
+                                    <img src="img/vk.svg" alt="">
+                                </button>
+                                <button>
+                                    <img src="img/tg.svg" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block">
+                    <img src="img/wallet.svg" alt="wallet">
+                    <p>Кошелёк</p>
+                </div>
+                <div class="block__active">
+                    <img src="img/game.svg" alt="game" class="block active">
+                    <p>Игры</p>
+                </div>
+                <div class="block">
+                    <img src="img/chat.svg" alt="chat">
+                    <p>Помощь</p>
+                </div>
+                <div class="block">
+                    <img src="img/bonus_nav.svg" alt="bonus_nav">
+                    <p>Бонусы</p>
+                </div>
+            </nav>
+        </div>
+    </main>
+</body>
+<script>
+    
+var menuButton = document.getElementById("menuButton");
+var modal = document.getElementById("myModal");
+
+
+menuButton.onclick = function() {
+modal.style.display = "block";
+}
+
+
+modal.querySelector(".close").onclick = function() {
+modal.style.display = "none";
+}
+
+
+window.onclick = function(event) {
+if (event.target == modal) {
+modal.style.display = "none";
+}
+}
+
+</script>         
+</html>
